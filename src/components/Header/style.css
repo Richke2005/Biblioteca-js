@@ -1,0 +1,8 @@
+.App-header{
+    width: 100vw;
+    height: 12vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: whitesmoke;
+  }
