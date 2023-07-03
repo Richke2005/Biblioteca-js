@@ -1,0 +1,37 @@
+import { livros } from './DadosUltimoLancamento'
+import { Titulo } from '../Titulo/index'
+import Styled from 'styled-components'
+
+const UltimosLancamentosContainer = Styled.section`
+background-color: #EBECEE;
+padding-bottom: 20px;
+display: flex;
+flex-direction: column;
+`
+
+const NovosLivrosContainer = Styled.div`
+margin-top: 30px;
+display: flex;
+width: 100%;
+justify-content: center;
+cursor: pointer;
+`
+
+// props
+function UltimosLancamentos() {
+    return( 
+        <UltimosLancamentosContainer>   
+            <Titulo 
+            cor='blue'
+            fontSize='40px'
+            >Últimos Lançamentos</Titulo>
+            <NovosLivrosContainer>
+                {livros.map( livro => (
+            <img src={livro.src}/>
+           ))}
+            </NovosLivrosContainer>
+        </UltimosLancamentosContainer>
+    )
+}
+
+export default UltimosLancamentos
