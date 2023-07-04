@@ -22,9 +22,9 @@ function UltimosLancamentos() {
     return( 
         <UltimosLancamentosContainer>   
             <Titulo 
-            cor='blue'
-            fontSize='40px'
-            >Últimos Lançamentos</Titulo>
+            cor='black'
+            fontSize='35px'
+            >Novidades</Titulo>
             <NovosLivrosContainer>
                 {livros.map( livro => (
             <img src={livro.src}/>

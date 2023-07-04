@@ -2,6 +2,8 @@ import Styled from 'styled-components'
 
 const Opcao = Styled.li`
 letter-spacing: 2px;
+margin-right: 40px;
+cursor: pointer;
 `
 const Opcoes = Styled.ul`
 padding: 0 5px;
@@ -9,10 +11,10 @@ display: flex;
 text-align: center;
 justify-content: space-around;
 align-items: center;
-width: 50%;
+
 `
 
-const textOptions = ["Menu", 'Sobre nós', 'nossa história']
+const textOptions = ['Novidades', 'Masculino', 'Feminino']
 
 function optionsHeader () {
     return (

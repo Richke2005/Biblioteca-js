@@ -1,18 +1,18 @@
 import Styled from 'styled-components'
 
 const Input = Styled.input`
-    order: 1px solid #FFF;
+    order: 2px solid black;
         background: transparent;
-        border: 1px solid #FFF;
-        padding: 20px 140px;
+        border: 2px solid black;
+        padding: ${ props => props.padding || '20px 140px' };
         border-radius: 50px;
         width: 200px;
-        color: #FFF;
+        color: black;
         font-size: 16px;
         margin-bottom: 10px;
 
         &::placeholder {
-                color: #FFF;
+                color: ;
                 font-size: 16px;
         }
 `

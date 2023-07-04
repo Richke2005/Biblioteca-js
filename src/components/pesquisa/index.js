@@ -4,15 +4,15 @@ import { useState } from 'react'
 import { livros } from './dadosPesquisa'
 
 const PesquisaContainer = Styled.section`
-        background-image: linear-gradient(90deg, #002F52 35%, #326589 165%);
-        color: #FFF;
+        background-image: white;
+        color: black;
         text-align: center;
         padding: 85px 0;
         height: 270px;
         width: 100%;
 `
 const Titulo = Styled.h1`
-color: #FFF;
+color: black;
 font-size: 36px;
 text-align: center;
 width: 100%;

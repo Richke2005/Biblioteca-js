@@ -1,8 +1,8 @@
 import Styled from 'styled-components'
-import { Titulo }from '../Titulo/index'
+import { Titulo } from '../Titulo/index'
 
 const Card = Styled.div`
-align-items: center;
+    align-items: center;
     background-color: #FFF;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 10px;

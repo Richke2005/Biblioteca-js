@@ -2,6 +2,7 @@ import img from '../../logo.svg';
 import Styled from 'styled-components'
 
 const LogoContainer = Styled.div`
+    margin-right: ${props => props.marginRight|| '0px'};
     font-size: 20px;
     height: 100%;
     display: flex;
@@ -14,11 +15,12 @@ border-radios: 5px;
 
 function Logo () {
     return(
-        <LogoContainer>
+        <LogoContainer 
+        marginRight='30px'>
             <LogoImg 
             src={img} alt='logo da página'
             />
-            <p>ola <strong>mundo</strong></p>
+            <p>Angels´ <strong>Clothes</strong></p>
         </LogoContainer>
     )
 }
