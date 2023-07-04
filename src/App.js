@@ -1,34 +1,19 @@
-import Header from './components/Header/index';
-import Pesquisa from './components/pesquisa'
-import UltimosLancamentos from './components/UltimosLançamentos/index'
-import CardRecomenda from './components/CardRecomenda/index'
-import ImagemLivro from './images/livro2.png'
-import Styled from 'styled-components';
-
-const AppContainer = Styled.div`
-  width: 100vw;
-  height: 100vh;
-  background-color: white;
-`
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import Header from './components/Header/index'
+import Home from './screens/home'
+import Novidades from './screens/novidades'
 
 function App() {
-  return (
-    <AppContainer>
-     <Header></Header>
-     <Pesquisa/>
-    <UltimosLancamentos/>
-    <CardRecomenda
-    titulo="Talvez você se interesse por:"
-    subtitulo="Agular 11"
-    descricao="construindo uma aplicação com a plataforma google"
-    img={ImagemLivro}/>
-    <CardRecomenda
-    titulo="Talvez você se interesse por:"
-    subtitulo="Agular 11"
-    descricao="construindo uma aplicação com a plataforma google"
-    img={ImagemLivro}/>
-    </AppContainer>
+  return(
+    <Router>
+      <Header/>
+      <Routes>
+        <Route exact path="/" element={<Home/>}/>
+        <Route path="/novidades" element={<Novidades/>}/>
+      </Routes>
+    </Router>
   )
 }
+ 
 
-export default App;
+export default App
