@@ -2,9 +2,10 @@ import Logo from '../logo'
 import Options from '../optionsHeader'
 import Icons from '../iconsHeader'
 import Input from '../input/index'
+import { motion } from 'framer-motion'
 import Styled from 'styled-components'
 
-const HeaderContainer = Styled.header`
+const HeaderContainer = Styled(motion.header)`
 width: 100vw;
 height: ${props => props.height || '12vh'};
 display: flex;
@@ -14,19 +15,29 @@ background-color: white;
 border-bottom: solid 1px black;
 `
 
+const containerVariants = {
+    hidden: {
+        opacity: 0,
+        y: -100
+    },
+    visible: {
+        opacity: 1,
+        y: 0,
+            transition: { 
+            delay: 0.2, 
+            type: 'spring', 
+            stiffness: 100
+        }
+    }
+}
 
 function Header () {
-    window.addEventListener('scroll', () =>{
-        const windowTop = window.pageYOffset
-        const header = document.querySelector('header')
-        if(windowTop > header.offsetTop){
-          <HeaderContainer
-          height='10vh'/>
-        }
-    })
-   
     return (
-    <HeaderContainer>
+    <HeaderContainer
+    variants={containerVariants}
+    initial="hidden"
+    animate="visible"
+    >
         <Logo></Logo>
         <Options/>
         <Input 
