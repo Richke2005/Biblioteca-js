@@ -1,4 +1,5 @@
 import Styled from 'styled-components'
+import ClothesWindow from '../ClothesWindow/clotheswindow'
 import { Link } from 'react-router-dom'
 
 const Opcao = Styled.li`
@@ -21,7 +22,8 @@ function optionsHeader () {
     return (
         <Opcoes>
           <Opcao>
-            <Link to="/">Home</Link>
+            <Link to="/"
+            >Home</Link>
           </Opcao>
           <Opcao>
             <Link to="/novidades">Novidades</Link>

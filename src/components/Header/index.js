@@ -13,6 +13,7 @@ justify-content: space-around;
 align-items: center;
 background-color: white;
 border-bottom: solid 1px black;
+position:fixed;
 `
 
 const containerVariants = {

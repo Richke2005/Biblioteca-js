@@ -2,6 +2,7 @@ import Pesquisa from '../components/pesquisa'
 import UltimosLancamentos from '../components/UltimosLançamentos/index'
 import CardRecomenda from '../components/CardRecomenda/index'
 import ImagemLivro from '../images/livro2.png'
+import CategoryWindow from '../components/ClothesWindow/clotheswindow'
 import Styled from 'styled-components'
 
 const AppContainer = Styled.div`
@@ -13,6 +14,7 @@ const AppContainer = Styled.div`
 function Home() {
   return (
     <AppContainer>
+     <CategoryWindow/>
      <Pesquisa/>
     <UltimosLancamentos/>
     <CardRecomenda
