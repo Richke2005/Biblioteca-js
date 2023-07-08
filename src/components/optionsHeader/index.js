@@ -1,5 +1,4 @@
 import Styled from 'styled-components'
-import ClothesWindow from '../ClothesWindow/clotheswindow'
 import { Link } from 'react-router-dom'
 
 const Opcao = Styled.li`
@@ -21,7 +20,7 @@ align-items: center;
 function optionsHeader () {
     return (
         <Opcoes>
-          <Opcao>
+          <Opcao id="masculino">
             <Link to="/"
             >Home</Link>
           </Opcao>

@@ -18,6 +18,18 @@ const category = [
         type: "coats",
         age: "adult"
 
+    },
+    {
+        sex: 'male',
+        type: "T-shirt",
+        age: "adult"
+
+    },
+    {
+        sex: 'male',
+        type: "shoes",
+        age: "adult"
+
     }
 ]
 
