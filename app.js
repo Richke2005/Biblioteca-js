@@ -7,6 +7,4 @@ app.use('/roupas', rotaRoupas)
 
 const port = 8000
 
-
-
 app.listen(port)
