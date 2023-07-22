@@ -30,6 +30,12 @@ const category = [
         type: "shoes",
         age: "adult"
 
+    },
+    {
+        sex: 'male',
+        type: "gloves",
+        age: "adult"
+
     }
 ]
 

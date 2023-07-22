@@ -15,13 +15,13 @@ width: 50%;
 min-width: 250px;
 max-height: 400px;
 display: flex;
-background-color: #FFFF00;
-border-radius: 5px;
+background-color: transparent;
+border: 2px solid black;
+border-radius: 10px;
 `
 
 const Title = Styled.h3`
 margin-left: 2px;
-
 `
 
 const Category = Styled.ul`
@@ -29,14 +29,8 @@ const Category = Styled.ul`
 `
 
 const categoryVariants = {
-    hidden: {
-        y: -100,
-        opacity: 0
-    },
     visible: {
-    y: 0, 
-    opacity: 1,
-    scale: 1.2,
+    scale: 1.1, 
       transition: {
         type: "spring"
       }

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 const Opcao = Styled.li`
 letter-spacing: 3px;
-font-size: 1.2rem;
+font-size: 1.1rem;
 list-style: none;
 margin-right: 40px;
 cursor: pointer;
@@ -21,12 +21,13 @@ function optionsHeader () {
     return (
         <Opcoes>
           <Opcao id="masculino">
-            <Link to="/"
-            >Home</Link>
+            <Link to="/">Home</Link>
           </Opcao>
           <Opcao>
             <Link to="/novidades">Novidades</Link>
           </Opcao>
+          <Opcao>Masculino</Opcao>
+          <Opcao>Feminino</Opcao>
         </Opcoes>
         
     )

@@ -12,6 +12,7 @@ function App() {
         <Route path="/novidades" element={<Novidades/>}/>
       </Routes>
     </Router>
+    
   )
 }
  
