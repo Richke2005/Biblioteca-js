@@ -15,5 +15,10 @@ export const livros = [
         nome: 'O cangaceiro', 
         id: 3, 
         src: livro
+    },
+    {
+        nome: 'Python', 
+        id: 4, 
+        src: livro
     }
 ]

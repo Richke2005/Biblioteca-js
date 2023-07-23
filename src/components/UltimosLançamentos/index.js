@@ -12,7 +12,6 @@ flex-direction: column;
 const NovosLivrosContainer = Styled.div`
 margin-top: 30px;
 display: flex;
-width: 100%;
 justify-content: center;
 cursor: pointer;
 `

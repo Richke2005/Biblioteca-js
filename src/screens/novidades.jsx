@@ -1,14 +1,15 @@
 import Styled from 'styled-components';
+import { Titulo } from '../components/Titulo/index'
 
-const ContainerNews = Styled.div`
-position: relative;
-top: 12vh;
+const NewsContainer = Styled.div`
+width: 100vw;
+padding-top: 12vh;
 `
 function Novidades(){
     return (
-        <ContainerNews>
-            <h1>Noviddaes</h1>
-        </ContainerNews>
+        <NewsContainer>
+            <Titulo>News</Titulo>
+        </NewsContainer>
     )
 }
 

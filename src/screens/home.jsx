@@ -6,8 +6,6 @@ import Styled from 'styled-components'
 
 const AppContainer = Styled.div`
   width: 100vw;
-  height: 100vh;
-  background-color: white;
 `
 
 function Home() {
@@ -16,7 +14,7 @@ function Home() {
      <Pesquisa/>
     <UltimosLancamentos/>
     <CardRecomenda
-    titulo="Talvez você se interesse por:"
+    titulo="Talvez você se interesse por isso:"
     subtitulo="Agular 11"
     descricao="construindo uma aplicação com a plataforma google"
     img={ImagemLivro}/>
