@@ -16,7 +16,6 @@ justify-content: center;
 cursor: pointer;
 `
 
-// props
 function UltimosLancamentos() {
     return( 
         <UltimosLancamentosContainer>   

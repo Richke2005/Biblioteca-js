@@ -1,19 +1,21 @@
 import Styled from 'styled-components'
 import Information from './information'
+import image from '../../images/sacola.svg'
 
 const FooterContainer = Styled.footer`
 width: 100vw;
 display: flex;
+justify-content: space-around;
 background-color: lightgray;
 `
 
-
-//TODO: socialmedia container
 const SocialMedia = Styled.div`
-
+display: flex;
+background-color: black;
 `
-const Lis = ['Sobre nós', "example", 'example']
-const AnotherList = ['example', 'example']
+
+const Lis = ['Sobre nós', 'Sobre História', 'Wild kingdom']
+const AnotherList = ['Youtube', 'Facebook', 'Twitter', 'Workut']
 
 function Footer() {
     return(
@@ -27,8 +29,9 @@ function Footer() {
           lis={AnotherList}
           />
             <SocialMedia>
-                <img src="" alt=''></img>
+                <img src={image} alt="Social media"></img>
             </SocialMedia>
+           
         </FooterContainer>
     )
 

@@ -39,7 +39,7 @@ function Header () {
     initial="hidden"
     animate="visible"
     >
-        <Logo></Logo>
+        <Logo/>
         <Options/>
         <Input 
         padding='5px 20px'

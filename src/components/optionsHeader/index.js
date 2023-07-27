@@ -1,4 +1,5 @@
 import Styled from 'styled-components'
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 const Opcao = Styled.li`
@@ -17,10 +18,17 @@ justify-content: space-around;
 align-items: center;
 `
 
-function optionsHeader () {
+function OptionsHeader () {
+  const [component, setComponent] = useState([])
+
+
     return (
         <Opcoes>
-          <Opcao id="masculino">
+          <Opcao onMouseOver={(element) => {
+            const clickedElement = element.target
+            setComponent((ageComponent) => [...ageComponent, clickedElement])
+            console.log(component)
+          }}>
             <Link to="/">Home</Link>
           </Opcao>
           <Opcao>
@@ -33,4 +41,4 @@ function optionsHeader () {
     )
 }
 
-export default optionsHeader
+export default OptionsHeader

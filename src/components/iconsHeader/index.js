@@ -12,7 +12,6 @@ display: flex;
 align-itens: center;
 `
 
-
 const icons = [myHome, shopping]
 
 function inconsHeader () {

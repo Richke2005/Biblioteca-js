@@ -29,6 +29,10 @@ const Category = Styled.ul`
 `
 
 const categoryVariants = {
+    hidden: {
+      visibility: 'hidden',
+
+    },
     visible: {
     scale: 1.1, 
       transition: {
@@ -43,7 +47,7 @@ function CategoryWindow() {
         <FloatContainer>
         <CategoryContainer
         variants={categoryVariants}
-        whileHover="visible"
+        initial="visible"
         >
         <Title>Male</Title>
         

@@ -1,8 +1,9 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Header from './components/Header/index'
+import ButtonTop from './components/ButtonTop'
+import Footer  from './components/Footer/index'
 import Home from './screens/home'
 import Novidades from './screens/novidades'
-import Footer  from './components/Footer/index'
 
 function App() {
   return(
@@ -12,9 +13,9 @@ function App() {
         <Route exact path="/" element={<Home/>}/>
         <Route path="/novidades" element={<Novidades/>}/>
       </Routes>
+      <ButtonTop/>
       <Footer/>
     </Router>
-    
   )
 }
  
