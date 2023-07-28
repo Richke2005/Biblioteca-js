@@ -1,7 +1,8 @@
 const express = require('express');
 const rotaRoupas = require('./routes/index')
 
-const app = express();
+const app = express()
+app.use(express.json())
 
 app.use('/roupas', rotaRoupas)
 

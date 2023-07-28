@@ -1,5 +1,5 @@
 const { Router } = require('express')
-const { getRoupas, getRoupa } = require('../constrolers/index')
+const { getRoupas, getRoupa, postRoupa, patchRoupas, deleteRoupa } = require('../controlers/index')
 
 const router = Router()
 
@@ -7,12 +7,10 @@ router.get('/', getRoupas)
 
 router.get('/:id', getRoupa)
 
-router.post('/', (req, res) => {
-    try{
-        res.send('Você fez uma requisição POST')
-    }catch(err){
-        res.send(err.message)
-    }
-})
+router.post('/', postRoupa)
+
+router.patch('/:id', patchRoupas)
+
+router.delete('/:id', deleteRoupa)
 
 module.exports = router;
