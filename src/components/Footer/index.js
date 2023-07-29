@@ -11,7 +11,6 @@ background-color: lightgray;
 
 const SocialMedia = Styled.div`
 display: flex;
-background-color: black;
 `
 
 const Lis = ['Sobre nós', 'Sobre História', 'Wild kingdom']

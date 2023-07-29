@@ -1,5 +1,4 @@
 import img from '../../images/logo.svg';
-import { Link } from 'react-router-dom'
 import Styled from 'styled-components'
 
 const LogoContainer = Styled.div`
@@ -23,7 +22,7 @@ function Logo () {
            <LogoImg 
             src={img} alt='logo da página'
             />
-           <Link to="/"><p>Angels´ <strong>Clothes</strong></p></Link>
+           <p>Angels´ <strong>Clothes</strong></p>
         </LogoContainer>
     )
 }

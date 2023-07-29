@@ -2,8 +2,10 @@ import Logo from '../logo'
 import Options from '../optionsHeader'
 import Icons from '../iconsHeader'
 import Input from '../input/index'
+import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import Styled from 'styled-components'
+
 
 const HeaderContainer = Styled(motion.header)`
 width: 100vw;
@@ -39,7 +41,9 @@ function Header () {
     initial="hidden"
     animate="visible"
     >
-        <Logo/>
+        <Link to="/">
+           <Logo/> 
+        </Link>
         <Options/>
         <Input 
         padding='5px 20px'

@@ -1,5 +1,4 @@
 import Styled from 'styled-components'
-import { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 const Opcao = Styled.li`
@@ -17,25 +16,14 @@ text-align: center;
 justify-content: space-around;
 align-items: center;
 `
+const Options = ['NOVIDADES', 'MASCULINO', 'FEMININO']
 
 function OptionsHeader () {
-  const [component, setComponent] = useState([])
-
-
     return (
         <Opcoes>
-          <Opcao onMouseOver={(element) => {
-            const clickedElement = element.target
-            setComponent((ageComponent) => [...ageComponent, clickedElement])
-            console.log(component)
-          }}>
-            <Link to="/">Home</Link>
-          </Opcao>
-          <Opcao>
-            <Link to="/novidades">Novidades</Link>
-          </Opcao>
-          <Opcao>Masculino</Opcao>
-          <Opcao>Feminino</Opcao>
+          {Options.map( texto => (
+            <Link to={`${texto.toLowerCase()}`}><Opcao>{texto}</Opcao></Link>
+          ))}
         </Opcoes>
         
     )
