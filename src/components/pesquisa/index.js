@@ -1,7 +1,8 @@
 import Input from '../input'
 import Styled from 'styled-components'
 import { useState } from 'react'
-import { livros } from './dadosPesquisa'
+import { useEffect } from 'react'
+import { getRoupas } from '../../services/roupas'
 
 const PesquisaContainer = Styled.section`
         background-image: white;
@@ -43,7 +44,12 @@ const Resultado = Styled.div`
 function Pesquisa () {
     // Estado -- Agente Que muda o Estado -- Estado inicial
     const [livrosPesquisados, setLivrosPesquisados] = useState([])
+    const [roupas, setRoupas] = useState([])
 
+    useEffect( () => {
+        const roupasDaAPI = getRoupas()
+        setRoupas(roupasDaAPI)
+    })
     return (
         <PesquisaContainer>
             <Titulo>Já sabe por onde começar ?</Titulo>
@@ -52,7 +58,7 @@ function Pesquisa () {
             placeholder="Escreva sua próxima leitura"
             onBlur={evt => {
                 const textoDigitado = evt.target.value
-                const resultadoPesquisa = livros.filter( livro => livro.nome.includes(textoDigitado))
+                const resultadoPesquisa = roupas.filter( livro => livro.nome.includes(textoDigitado))
                 setLivrosPesquisados(resultadoPesquisa)
             }}
             />
