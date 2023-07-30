@@ -47,9 +47,14 @@ function Pesquisa () {
     const [roupas, setRoupas] = useState([])
 
     useEffect( () => {
-        const roupasDaAPI = getRoupas()
-        setRoupas(roupasDaAPI)
+       fetchRoupas()
     })
+
+    async function fetchRoupas() {
+        const roupasDaAPI = await getRoupas()
+        setRoupas(roupasDaAPI)
+    }
+    
     return (
         <PesquisaContainer>
             <Titulo>Já sabe por onde começar ?</Titulo>
