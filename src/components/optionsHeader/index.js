@@ -16,7 +16,7 @@ text-align: center;
 justify-content: space-around;
 align-items: center;
 `
-const Options = ['NOVIDADES', 'MASCULINO', 'FEMININO']
+const Options = ['NOVIDADES', 'FAVORITOS']
 
 function OptionsHeader () {
     return (

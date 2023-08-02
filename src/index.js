@@ -6,8 +6,9 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Header from './components/Header'
 import ButtonTop from './components/ButtonTop/index'
 import Footer  from './components/Footer/index'
-import Home from './screens/Home'
+import Home from './screens/home'
 import Novidades from './screens/novidades'
+import Favoritos from './screens/favoritos'
 
 const GlobalStyle = createGlobalStyle`
 *{
@@ -47,7 +48,8 @@ root.render(
      <Header/>
       <Routes>
         <Route exact path="/" element={<Home/>}/>
-        <Route path="/novidades" element={<Novidades/>}/>
+        <Route path='/novidades' element={<Novidades/>}/>
+        <Route path="/favoritos" element={<Favoritos/>}/>
       </Routes>
       <ButtonTop/>
       <Footer/>

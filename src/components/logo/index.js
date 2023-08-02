@@ -11,7 +11,7 @@ const LogoContainer = Styled.div`
 `
 
 const LogoImg = Styled.img`
-width: 50%;
+width: 100%;
 object-fit: cover;
 `
 

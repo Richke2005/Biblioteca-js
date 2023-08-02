@@ -15,7 +15,8 @@ justify-content: space-around;
 align-items: center;
 background-color: white;
 border-bottom: solid 1px black;
-position:fixed;
+position: fixed;
+top: 0;
 `
 
 const containerVariants = {

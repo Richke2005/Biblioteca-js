@@ -1,9 +1,9 @@
 import axios from 'axios'
 
-const livrosAPI = axios.create({ baseURL: 'https://localhost:8000/roupas'})
+const connAPI = axios.create({ baseURL: "http://localhost:8000/roupas"})
 
 async function getRoupas(){
-    const response = await livrosAPI.get('/')
+    const response = await connAPI.get('/')
 
     return response.data
 }

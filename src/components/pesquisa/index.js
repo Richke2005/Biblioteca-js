@@ -43,8 +43,9 @@ const Resultado = Styled.div`
 
 function Pesquisa () {
     // Estado -- Agente Que muda o Estado -- Estado inicial
-    const [livrosPesquisados, setLivrosPesquisados] = useState([])
     const [roupas, setRoupas] = useState([])
+    const [roupasPesquisadas, setRoupasPesquisadas] = useState([])
+    
 
     useEffect( () => {
        fetchRoupas()
@@ -63,14 +64,14 @@ function Pesquisa () {
             placeholder="Escreva sua próxima leitura"
             onBlur={evt => {
                 const textoDigitado = evt.target.value
-                const resultadoPesquisa = roupas.filter( livro => livro.nome.includes(textoDigitado))
-                setLivrosPesquisados(resultadoPesquisa)
+                const resultadoPesquisa = roupas.filter( roupa => roupa.type.includes(textoDigitado))
+                setRoupasPesquisadas(resultadoPesquisa)
             }}
             />
-            {livrosPesquisados.map( livro => (
+            {roupasPesquisadas.map( roupa => (
                 <Resultado>
-                    <p>{livro.nome}</p>
-                    <img src={livro.src} alt="resultado da pesquisa"/>
+                    <p>{roupa.type}</p>
+                    <img src={roupa.src} alt='Imagem pesquisada'></img>
                 </Resultado>
             ))}
         </PesquisaContainer>
