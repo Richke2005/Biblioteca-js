@@ -1,22 +1,22 @@
-const { getAllClothes, getClothesById, insereRoupa, modificarRoupa, deletarRoupaPorId } = require("../services")
+const { getAllBooks, getLivrosById, insereLivro, modificarLivro, deletarLivroPorId } = require("../services")
 
 
-function getRoupas(req, res){
+function getLivros(req, res){
     try{
-        const roupas = getAllClothes()
-        res.send(roupas)
+        const livros = getAllBooks()
+        res.send(livros)
     }catch(err){
         res.send(err.message)
     }
 }
 
-function getRoupa(req, res){
+function getLivro(req, res){
     try{
         const id = req.params.id
 
         if(id && Number(id)){
-            const roupa = getClothesById(id)
-            res.send(roupa)
+            const livro = getLivrosById(id)
+            res.send(livro)
         } else {
             res.status(422)
             res.send("invalid id")
@@ -27,17 +27,17 @@ function getRoupa(req, res){
     }
 }
 
-function postRoupa(req, res){
+function postLivro(req, res){
     try{
-        const roupaNova = req.body
+        const livroNovo = req.body
 
-        if(req.body.type){
-        insereRoupa(roupaNova)
+        if(req.body.nome){
+        insereLivro(livroNovo)
         res.status(201)
-        res.send("Roupa inserida com sucesso")    
+        res.send("livro inserido com sucesso")    
         } else {
             res.status(422)
-            res.send("the Type camp is required")
+            res.send("the name camp is required")
         }
         
     }catch(error){
@@ -46,14 +46,14 @@ function postRoupa(req, res){
     }
 }
 
-function patchRoupas(req, res){
+function patchLivros(req, res){
     try{
         const id = req.params.id
 
         if(id && Number(id)){
             const body = req.body
 
-            modificarRoupa(body, id)
+            modificarLivro(body, id)
             res.send("item modificado com sucesso")
         } else {
             res.status(422)
@@ -66,13 +66,13 @@ function patchRoupas(req, res){
     }
 }
 
-function deleteRoupa(req, res){
+function deleteLivro(req, res){
     try{
         const id = req.params.id
 
         if( id && Number(id) ){
-            deletarRoupaPorId(id) 
-            res.send("roupa deletada com sucesso")            
+            deletarLivroPorId(id) 
+            res.send("livro deletado com sucesso")            
         } else {
             res.status(422)
             res.send("invalid id")            
@@ -85,9 +85,9 @@ function deleteRoupa(req, res){
 }
 
 module.exports = {
-    getRoupas,
-    getRoupa, 
-    postRoupa, 
-    patchRoupas, 
-    deleteRoupa
+    getLivros,
+    getLivro, 
+    postLivro, 
+    patchLivros, 
+    deleteLivro
 }

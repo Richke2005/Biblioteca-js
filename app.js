@@ -1,5 +1,5 @@
 const express = require('express');
-const rotaRoupas = require('./routes/index')
+const rotaLivros = require('./routes/index')
 const rotaFavorito = require('./routes/favorito')
 
 const cors = require('cors')
@@ -10,7 +10,7 @@ app.use(express.json())
 
 app.use(cors({origin: "http://localhost:3000"}))
 
-app.use('/roupas', rotaRoupas)
+app.use('/livros', rotaLivros)
 app.use('/favoritos', rotaFavorito)
 
 const port = 8000

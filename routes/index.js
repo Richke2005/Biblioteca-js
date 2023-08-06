@@ -1,16 +1,16 @@
 const { Router } = require('express')
-const { getRoupas, getRoupa, postRoupa, patchRoupas, deleteRoupa } = require('../controlers/index')
+const { getLivros, getLivro, postLivro, patchLivros, deleteLivro } = require('../controlers/index')
 
 const router = Router()
 
-router.get('/', getRoupas)
+router.get('/', getLivros)
 
-router.get('/:id', getRoupa)
+router.get('/:id', getLivro)
 
-router.post('/', postRoupa)
+router.post('/', postLivro)
 
-router.patch('/:id', patchRoupas)
+router.patch('/:id', patchLivros)
 
-router.delete('/:id', deleteRoupa)
+router.delete('/:id', deleteLivro)
 
 module.exports = router;
