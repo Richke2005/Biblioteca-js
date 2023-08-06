@@ -1,1 +1,28 @@
-[{"id":"1","type":"masculino","cloth":"blusa", "src": "imagem richa"},{"id":"2","type":"feminino"},{"id":"3","type":"masculino"},{"id":"4","type":"masculino","cloth":"blusa"}]
+[ {
+    "id": "5",
+    "nome": "Cangaceiro Javascript"
+  },
+  {
+    "id": "7",
+    "nome": "Guia básico de C#"
+  },
+  {
+    "id": "8",
+    "nome": "Guia básico de JavaScript"
+  },
+  {
+    "id": "9",
+    "nome": "Código Limpo"
+  },
+  {
+    "id": "10",
+    "nome": "JavaScript para iniciantes"
+  },
+  {
+    "id": "11",
+    "nome": "Conhecendo o python"
+  },
+  {
+    "id": "12",
+    "nome": "Imersão Alura"
+  }]
