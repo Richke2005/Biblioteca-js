@@ -22,7 +22,7 @@ function Logo () {
            <LogoImg 
             src={img} alt='logo da página'
             />
-           <p>Angels´ <strong>Clothes</strong></p>
+           <p>Angels´s <strong>BooksStore</strong></p>
         </LogoContainer>
     )
 }

@@ -2,7 +2,7 @@ import Input from '../input'
 import Styled from 'styled-components'
 import { useState } from 'react'
 import { useEffect } from 'react'
-import { getRoupas } from '../../services/roupas'
+import { getLivros } from '../../services/livros'
 import { postFavoritos } from '../../services/favoritos'
 const PesquisaContainer = Styled.section`
         background-image: white;
@@ -43,8 +43,8 @@ const Resultado = Styled.div`
 
 function Pesquisa () {
     // Estado -- Agente Que muda o Estado -- Estado inicial
-    const [roupas, setRoupas] = useState([])
-    const [roupasPesquisadas, setRoupasPesquisadas] = useState([])
+    const [livros, setLivros] = useState([])
+    const [livrosPesquisados, setLivrosPesquisados] = useState([])
     
 
     useEffect( () => {
@@ -52,8 +52,8 @@ function Pesquisa () {
     })
 
     async function fetchRoupas() {
-        const roupasDaAPI = await getRoupas()
-        setRoupas(roupasDaAPI)
+        const livrosDaAPI = await getLivros()
+        setLivros(livrosDaAPI)
     }
 
     async function insertFavoritos(id){
@@ -69,14 +69,14 @@ function Pesquisa () {
             placeholder="Escreva sua próxima leitura"
             onBlur={evt => {
                 const textoDigitado = evt.target.value
-                const resultadoPesquisa = roupas.filter( roupa => roupa.nome.includes(textoDigitado))
-                setRoupasPesquisadas(resultadoPesquisa)
+                const resultadoPesquisa = livros.filter( livro => livro.nome.includes(textoDigitado))
+                setLivrosPesquisados(resultadoPesquisa)
             }}
             />
-            {roupasPesquisadas.map( roupa => (
-                <Resultado onClick={() => insertFavoritos(roupa.id)}>
-                    <p>{roupa.nome}</p>
-                    <img src={roupa.src} alt='Imagem pesquisada'></img>
+            {livrosPesquisados.map( livro => (
+                <Resultado onClick={() => insertFavoritos(livro.id)}>
+                    <p>{livro.nome}</p>
+                    <img src={livro.src} alt='Imagem pesquisada'></img>
                 </Resultado>
             ))}
         </PesquisaContainer>
