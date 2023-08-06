@@ -3,7 +3,7 @@ import Styled from 'styled-components'
 import { useState } from 'react'
 import { useEffect } from 'react'
 import { getRoupas } from '../../services/roupas'
-
+import { postFavoritos } from '../../services/favoritos'
 const PesquisaContainer = Styled.section`
         background-image: white;
         color: black;
@@ -55,6 +55,11 @@ function Pesquisa () {
         const roupasDaAPI = await getRoupas()
         setRoupas(roupasDaAPI)
     }
+
+    async function insertFavoritos(id){
+        await postFavoritos(id)
+        alert(`livro de id: ${id} inserido com sucesso`)
+    }
     
     return (
         <PesquisaContainer>
@@ -64,13 +69,13 @@ function Pesquisa () {
             placeholder="Escreva sua próxima leitura"
             onBlur={evt => {
                 const textoDigitado = evt.target.value
-                const resultadoPesquisa = roupas.filter( roupa => roupa.type.includes(textoDigitado))
+                const resultadoPesquisa = roupas.filter( roupa => roupa.nome.includes(textoDigitado))
                 setRoupasPesquisadas(resultadoPesquisa)
             }}
             />
             {roupasPesquisadas.map( roupa => (
-                <Resultado>
-                    <p>{roupa.type}</p>
+                <Resultado onClick={() => insertFavoritos(roupa.id)}>
+                    <p>{roupa.nome}</p>
                     <img src={roupa.src} alt='Imagem pesquisada'></img>
                 </Resultado>
             ))}

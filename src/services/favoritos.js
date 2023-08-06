@@ -8,6 +8,16 @@ async function getFavoritos(){
     return response.data
 }
 
+async function postFavoritos(id){
+    await connAPI.post(`/${id}`)
+}
+
+async function deleteFavoritos(id){
+    await connAPI.delete(`/${id}`)
+}
+
 export {
-    getFavoritos
+    getFavoritos, 
+    postFavoritos,
+    deleteFavoritos
 }
