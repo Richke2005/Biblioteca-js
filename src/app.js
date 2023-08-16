@@ -1,16 +1,7 @@
 const express = require('express');
-const rotaLivros = require('../routes/index')
-const rotaFavorito = require('../routes/favorito')
-const dbConn = require("./config/dbConnect")
-
-
-dbConn.on("error", () => {
-    console.error("erro ao conectar no banco")
-})
-
-dbConn.on("open", () => {
-    console.log("Conectado ao banco com sucesso")
-})
+const rotaLivros = require('./routes/livro')
+const rotaFavorito = require('./routes/favorito')
+require('./config/dbConnect')
 
 const cors = require('cors');
 

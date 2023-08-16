@@ -1,10 +1,11 @@
-const { getAllBooks, getLivrosById, insereLivro, modificarLivro, deletarLivroPorId } = require("../services")
+const { getAllBooks, getLivrosById, insereLivro, modificarLivro, deletarLivroPorId } = require("../services/index")
+const { response } = require("express")
 
-
-function getLivros(req, res){
+async function getLivros(req, res){
     try{
-        const livros = getAllBooks()
-        res.send(livros)
+    const livros = await getAllBooks()
+    res.send(livros)
+    response.status(200)
     }catch(err){
         res.send(err.message)
     }
@@ -27,19 +28,12 @@ function getLivro(req, res){
     }
 }
 
-function postLivro(req, res){
+async function postLivro(req, res){
     try{
-        const livroNovo = req.body
-
-        if(req.body.nome){
-        insereLivro(livroNovo)
+        let livroNovo = req.body
+        await insereLivro(livroNovo)
         res.status(201)
-        res.send("livro inserido com sucesso")    
-        } else {
-            res.status(422)
-            res.send("the name camp is required")
-        }
-        
+        res.send(`livro cadastrado com sucesso`)  
     }catch(error){
         res.status(500)
         res.send(error.message)

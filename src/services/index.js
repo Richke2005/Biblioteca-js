@@ -1,7 +1,8 @@
 const fs = require('fs')
+const livros = require('../models/livro')
 
-function getAllBooks(){
-    return JSON.parse(fs.readFileSync('roupas.json'))
+async function getAllBooks(){
+    return await livros.find()
 }
 
 function getLivrosById(id){
@@ -10,12 +11,9 @@ function getLivrosById(id){
     return filterBooks
 }
 
-function insereLivro(livroNovo) {
-    const livros = JSON.parse(fs.readFileSync('roupas.json'))
-
-    const novaListaDeLivros = [...livros, livroNovo]
-
-    fs.writeFileSync('roupas.json', JSON.stringify(novaListaDeLivros))
+async function insereLivro(livroNovo) {
+    const novoLivro = new livros(livroNovo)
+    await novoLivro.save()
 }
 
 function modificarLivro(modificacoes, id){

@@ -5,6 +5,7 @@ function getFavoritos(req, res){
     try{
         const roupas = getTodosFavoritos()
         res.send(roupas)
+        res.status(200)
     }catch(err){
         res.send(err.message)
     }
