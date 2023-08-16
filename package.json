@@ -2,8 +2,9 @@
   "name": "e-commerce",
   "version": "1.0.0",
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
-  "main": "index.js",
+  "main": "./src/app.js",
   "scripts": {
+    "dev": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -11,7 +12,10 @@
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
     "express": "^4.18.2",
+    "mongodb": "^5.7.0",
+    "mongoose": "^7.4.3",
     "nodemon": "^2.0.22"
   }
 }
