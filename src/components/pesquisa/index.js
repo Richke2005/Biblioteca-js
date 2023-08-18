@@ -69,14 +69,14 @@ function Pesquisa () {
             placeholder="Escreva sua próxima leitura"
             onBlur={evt => {
                 const textoDigitado = evt.target.value
-                const resultadoPesquisa = livros.filter( livro => livro.nome.includes(textoDigitado))
+                const resultadoPesquisa = livros.filter( livro => livro.titulo.includes(textoDigitado))
                 setLivrosPesquisados(resultadoPesquisa)
             }}
             />
             {livrosPesquisados.map( livro => (
                 <Resultado onClick={() => insertFavoritos(livro.id)}>
-                    <p>{livro.nome}</p>
-                    <img src={livro.src} alt='Imagem pesquisada'></img>
+                    <h2>{livro.titulo}</h2>
+                    <p>{livro.autor}</p>
                 </Resultado>
             ))}
         </PesquisaContainer>
