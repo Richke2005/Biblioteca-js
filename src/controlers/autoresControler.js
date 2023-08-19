@@ -26,6 +26,7 @@ class AutoresControler{
         try{
             const id = req.params.id
             await autores.findByIdAndUpdate(id, {$set: req.body})
+            
             res.status(200).send({message: `Livro de id: ${id} atualizado com sucesso`})
         }catch(err){
             res.status(500).send({message:`${err.message} - id do livro não encontardo`})
