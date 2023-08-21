@@ -21,7 +21,7 @@ class FavoritosControler{
             const insertfavorito = new favoritos({
             favorito : id
             })
-             await insertfavorito.save()
+            await insertfavorito.save()
 
             res.status(201).send({message: `favorito - ${insertfavorito}inserido com sucesso `})
         }catch(err){
