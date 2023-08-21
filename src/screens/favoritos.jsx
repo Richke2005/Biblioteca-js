@@ -67,8 +67,8 @@ function Favoritos(){
           <ResultadoContainer>
             {
               favoritos.length !== 0 ? favoritos.map(favorito => (
-                <Resultado onClick={() => deletarFavorito(favorito.id)}>
-                  <p>{favorito.nome}</p>
+                <Resultado onClick={() => deletarFavorito(favorito._id)}>
+                  <p>{favorito.favorito.titulo}</p>
                   <img src={livroImg} alt='Imagem de livro'/>
                 </Resultado>
               )) : null
