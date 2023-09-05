@@ -1,10 +1,10 @@
-const { Router } = require('express')
-const FavoritosControler = require('../controlers/favoritosControler')
+const { Router } = require("express");
+const FavoritosControler = require("../controlers/favoritosControler");
 
-const router = Router()
+const router = Router();
 
-router.get('/favoritos', FavoritosControler.listarFavorito)
-router.post('/favoritos/:id', FavoritosControler.cadastrarFavoritoById)
-router.delete('/favoritos/:id', FavoritosControler.excluirFavoritoById)
+router.get("/favoritos", FavoritosControler.listarFavorito);
+router.post("/favoritos/:id", FavoritosControler.cadastrarFavoritoById);
+router.delete("/favoritos/:id", FavoritosControler.excluirFavoritoById);
 
-module.exports = router
+module.exports = router;

@@ -1,12 +1,12 @@
-const mongoose = require("mongoose")
+const mongoose = require("mongoose");
 
 const favoritosSchema = new mongoose.Schema({
-favorito:{type: mongoose.Schema.Types.ObjectId, ref: 'livros', required: true}
+  favorito:{type: mongoose.Schema.Types.ObjectId, ref: "livros", required: true}
 }, 
 {
-    timestamps: true
-})
+  timestamps: true
+});
 
-const favoritos = mongoose.model('favoritos', favoritosSchema)
+const favoritos = mongoose.model("favoritos", favoritosSchema);
 
-module.exports = favoritos
+module.exports = favoritos;

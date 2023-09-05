@@ -1,23 +1,24 @@
-const mongoose = require('mongoose');
-require('dotenv').config()
+const mongoose = require("mongoose");
+require("dotenv").config();
 
-const dbUSER = process.env.DB_USER
-const dbPASS = process.env.DB_PASS
+const dbUSER = process.env.DB_USER;
+const dbPASS = process.env.DB_PASS;
+
 
 function connect(){
-    mongoose.connect(`mongodb+srv://${dbUSER}:${dbPASS}@node-express.5amaocy.mongodb.net/Alura-node?retryWrites=true&w=majority`)
+  mongoose.connect(`mongodb+srv://${dbUSER}:${dbPASS}@node-express.5amaocy.mongodb.net/Alura-node?retryWrites=true&w=majority`);
 
-    const conn = mongoose.connection
+  const conn = mongoose.connection;
 
-    conn.on("error", err =>{
-        console.error(err)
-    })
+  conn.on("error", err =>{
+    console.error(err);
+  });
 
-    conn.once("open", () => {
-        console.log(`connection sucessfull to mongoDB`)
-    })
+  conn.once("open", () => {
+    console.log("connection sucessfull to mongoDB");
+  });
 }
 
-connect()
+connect();
 
-module.exports = mongoose
+module.exports = mongoose;
