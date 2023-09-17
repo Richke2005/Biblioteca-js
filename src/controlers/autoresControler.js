@@ -1,4 +1,6 @@
+const PagNaoEncontarada = require("../erros/erroPagNaoEncontrada");
 const autores = require("../models/Autor");
+
 
 class AutoresControler{
   static listarAutores = async (req, res, next) => {
@@ -25,9 +27,13 @@ class AutoresControler{
   static atualizarAutor = async (req, res, next) =>{
     try{
       const id = req.params.id;
-      await autores.findByIdAndUpdate(id, {$set: req.body});
-            
-      res.status(200).send({message: `Livro de id: ${id} atualizado com sucesso`});
+      const autorPesquisado = await autores.findById(id);
+      if(autorPesquisado !== null){
+        await autores.findByIdAndUpdate(id, {$set: req.body});
+        res.status(200).send({message: `Livro de id: ${id} atualizado com sucesso`});
+      }else{
+        next(new PagNaoEncontarada("Id do autor não encontrado, Portanto não é possivel realizar update"));
+      }
     }catch(err){
       next(err);
     }
@@ -41,7 +47,7 @@ class AutoresControler{
       if(autorPesquisado !== null){
         res.status(200).send(autorPesquisado);
       }else{
-        res.status(404).send({message: "ID do autor não localizado"});
+        next(new PagNaoEncontarada("Id do autor não localizado"));
       }
       
     }catch(err){
@@ -54,9 +60,13 @@ class AutoresControler{
   static excluirAutor = async (req, res, next) =>{
     try{
       const id = req.params.id;
-        
-      await autores.findByIdAndDelete(id);
-      res.status(200).send({message: "document removed sucessfully"});
+      const autorPesquisado = await autores.findById(id);
+      if(autorPesquisado !== null){
+        await autores.findByIdAndDelete(id, {$set: req.body});
+        res.status(200).send({message: `Livro de id: ${id} deletado com sucesso`});
+      }else{
+        next(new PagNaoEncontarada("Id do autor não localizado portanto, não é possível realizar delete"));
+      }
     }catch(err){
       next(err);
     }

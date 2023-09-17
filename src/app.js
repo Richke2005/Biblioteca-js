@@ -2,6 +2,7 @@ const express = require("express");
 const routes = require("./routes/index");
 require("./config/dbConnect");
 const manipuladorDeErros = require("./middlewares/manipuladorDeErros");
+const manipulador404 = require("./middlewares/manipulador404");
 const cors = require("cors");
 
 
@@ -10,6 +11,8 @@ const app = express();
 app.use(cors({origin: "http://localhost:3000"}));
 
 routes(app);
+
+app.use(manipulador404);
 
 // eslint-disable-next-line no-unused-vars
 app.use(manipuladorDeErros);
