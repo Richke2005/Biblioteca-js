@@ -84,7 +84,7 @@ class LivrosControler{
       if(editoraDaAPI !== null){
         res.status(200).send(editoraDaAPI);
       }else{
-        next(new PagNaoEncontarada("editora não localizada"));
+        next(new PagNaoEncontarada("editora fornecida não localizada"));
       }
      
     }catch(err){
