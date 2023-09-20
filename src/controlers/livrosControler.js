@@ -1,3 +1,4 @@
+const PagNaoEncontarada = require("../erros/erroPagNaoEncontrada");
 const livros = require("../models/Livro");
 
 class LivrosControler{
@@ -27,8 +28,14 @@ class LivrosControler{
   static atualizarLivro = async (req, res, next) =>{
     try{
       const id = req.params.id;
-      await livros.findByIdAndUpdate(id, {$set: req.body});
-      res.status(200).send({message: `Livro de id: ${id} atualizado com sucesso`});
+      const livroDaAPI = await livros.findByIdAndUpdate(id, {$set: req.body});
+      if(livroDaAPI !== null){
+        console.log(livroDaAPI);
+        res.status(200).send({message: `Livro de id: ${id} atualizado com sucesso`});
+      }else{
+        next(new PagNaoEncontarada("Id do livro não localizado"));
+      }
+     
     }catch(err){
       next(err);
     }
@@ -40,7 +47,12 @@ class LivrosControler{
       const livroPesquisado = await livros.findById(id)
         .populate("autor", "nome")
         .exec();
-      res.status(200).send(livroPesquisado);
+      if(livroPesquisado !== null){
+        res.status(200).send(livroPesquisado);
+      }else{
+        next(new PagNaoEncontarada("Id Do livro não encontrado"));
+      }
+      
     }catch(err){
       next(err);
     }
@@ -51,8 +63,13 @@ class LivrosControler{
     try{
       const id = req.params.id;
             
-      await livros.findByIdAndDelete(id);
-      res.status(200).send({message: "document removed sucessfully"});
+      const livroDaAPI = await livros.findByIdAndDelete(id);
+      if(livroDaAPI !== null){
+        res.status(200).send({message: "document removed sucessfully"});
+      }else{
+        next(new PagNaoEncontarada("Id do livro não localizado"));
+      }
+      
     }catch(err){
       next(err);
     }
@@ -64,7 +81,12 @@ class LivrosControler{
       const editora = req.query.editora;
             
       const editoraDaAPI = await livros.find({"editora": editora});
-      res.status(200).send(editoraDaAPI);
+      if(editoraDaAPI !== null){
+        res.status(200).send(editoraDaAPI);
+      }else{
+        next(new PagNaoEncontarada("editora não localizada"));
+      }
+     
     }catch(err){
       next(err);
     }
