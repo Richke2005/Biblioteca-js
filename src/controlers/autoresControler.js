@@ -1,5 +1,5 @@
 const PagNaoEncontarada = require("../erros/erroPagNaoEncontrada");
-const autores = require("../models/Autor");
+const { autores } = require("../models/index.js");
 
 
 class AutoresControler{

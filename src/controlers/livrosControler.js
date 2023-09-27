@@ -1,5 +1,6 @@
 const PagNaoEncontarada = require("../erros/erroPagNaoEncontrada");
-const livros = require("../models/Livro");
+const { livros } = require("../models/index.js");
+const processaBusca = require("../services/processaBusca");
 
 class LivrosControler{
   static listarLivros = async(req, res, next) => {
@@ -76,13 +77,14 @@ class LivrosControler{
            
   };
 
-  static listarLivroPorEditora = async (req, res, next)=>{
+  static listarLivroPorFiltro = async (req, res, next)=>{
     try{
-      const editora = req.query.editora;
-            
-      const editoraDaAPI = await livros.find({"editora": editora});
-      if(editoraDaAPI !== null){
-        res.status(200).send(editoraDaAPI);
+      const busca = processaBusca(req.query);
+
+      const buscaDaAPI = await livros.find(busca);
+
+      if(buscaDaAPI !== null){
+        res.status(200).send(buscaDaAPI);
       }else{
         next(new PagNaoEncontarada("editora fornecida não localizada"));
       }
@@ -93,6 +95,8 @@ class LivrosControler{
             
   };
 }
+
+
 
 module.exports = LivrosControler;
 
