@@ -5,7 +5,7 @@ Biblioteca criada no curso de fullstack em javascript
 | :placard: Vitrine.Dev |     |
 | -------------  | --- |
 | :sparkles: Nome        | **Biblioteca Virtual**
-| :label: Tecnologias |  javascript, react, frame-motion
+| :label: Tecnologias |  javascript, react, node.js
 | :rocket: URL         | https://github.com/Richke2005/Biblioteca-js
 | :fire: Desafio     | 
 
