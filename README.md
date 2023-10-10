@@ -1,16 +1,16 @@
-# Meu portifólio
+# Bookstore Online
 
-Biblioteca criada no curso de fullstack em javascript
+Bookstore created in fullstack curse from Alura
 
 | :placard: Vitrine.Dev |     |
 | -------------  | --- |
-| :sparkles: Nome        | **Biblioteca Virtual**
+| :sparkles: Nome        | **BookStore Online with search mechanism**
 | :label: Tecnologias |  javascript, react, node.js
 | :rocket: URL         | https://github.com/Richke2005/Biblioteca-js
 | :fire: Desafio     | 
 
 <!-- Inserir imagem com a #vitrinedev ao final do link -->
-![](https://via.placeholder.com/1200x500.png?text=imagem+lindona+do+meu+projeto#vitrinedev)
+![](https://ibb.co/7XhYqMM#vitrinedev)
 
 ## Detalhes do projeto
 
