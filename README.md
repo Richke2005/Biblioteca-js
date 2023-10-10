@@ -10,7 +10,7 @@ Bookstore created in fullstack curse from Alura
 | :fire: Desafio     | 
 
 <!-- Inserir imagem com a #vitrinedev ao final do link -->
-![](https://imgbox.com/9MuHglZg#vitrinedev)
+![](https://th.bing.com/th/id/OIP.SWGudoClakzjrkDD5FaWbgHaEK?pid=ImgDet&rs=1#vitrinedev)
 
 ## Detalhes do projeto
 
