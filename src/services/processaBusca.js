@@ -1,9 +1,10 @@
+const { autores } = require("../models/index");
 
 // função de busca importíssima
-function processaBusca(parametros){
-  const { editora, titulo, minPag, maxPag } = parametros;
+async function processaBusca(parametros){
+  const { editora, titulo, minPag, maxPag, nomeAutor } = parametros;
 
-  const busca = {};
+  let busca = {};
 
   //const regex = new RegExp(titulo, "i");
 
@@ -15,6 +16,16 @@ function processaBusca(parametros){
   if(minPag) busca.numPaginas.$gte = minPag;
   if(maxPag) busca.numPaginas.$lte = maxPag;
 
+  if(nomeAutor){
+    const autor = await autores.findOne({ nome: nomeAutor });
+    
+    if(autor !== null){
+      busca.autor = autor._id;
+    }else {
+      busca = null;
+    }
+  
+  }
   return busca;
 }
 

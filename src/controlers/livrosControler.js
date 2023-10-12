@@ -1,15 +1,28 @@
 const PagNaoEncontarada = require("../erros/erroPagNaoEncontrada");
+const RequisicaoIncorreta = require("../erros/requisiçãoIncorreta");
 const { livros } = require("../models/index.js");
 const processaBusca = require("../services/processaBusca");
 
 class LivrosControler{
   static listarLivros = async(req, res, next) => {
     try{
-      const livrosDaAPI = await livros.find()
-        .populate("autor")
-        .exec();
+      let { limite = 5, pagina = 1 } = req.query;
+
+      limite = parseInt(limite);
+      pagina = parseInt(pagina);
+
+      if( limite > 0 && pagina > 0){
+        const livrosDaAPI = await livros.find()
+          .skip((pagina-1) * limite)
+          .limit(limite)  
+          .populate("autor")
+          .exec();
                 
-      res.status(200).send(livrosDaAPI);
+        res.status(200).send(livrosDaAPI);
+      }else {
+        next(new RequisicaoIncorreta());
+      }
+      
     }catch(err){
       next(err);
     }
@@ -79,16 +92,19 @@ class LivrosControler{
 
   static listarLivroPorFiltro = async (req, res, next)=>{
     try{
-      const busca = processaBusca(req.query);
+      const busca = await processaBusca(req.query);
 
-      const buscaDaAPI = await livros.find(busca);
+      
+      if(busca !== null){
+        const buscaDaAPI = await livros
+          .find(busca)
+          .populate("autor");
 
-      if(buscaDaAPI !== null){
         res.status(200).send(buscaDaAPI);
-      }else{
-        next(new PagNaoEncontarada("editora fornecida não localizada"));
+      } else {
+        res.status(200).send([]);
       }
-     
+
     }catch(err){
       next(err);
     }
