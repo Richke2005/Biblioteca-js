@@ -22,7 +22,7 @@ function OptionsHeader () {
     return (
         <Opcoes>
           {Options.map( texto => (
-            <Link to={`${texto.toLowerCase()}`}><Opcao>{texto}</Opcao></Link>
+            <Link key={texto} to={`${texto.toLowerCase()}`}><Opcao>{texto}</Opcao></Link>
           ))}
         </Opcoes>
         

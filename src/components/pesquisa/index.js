@@ -74,7 +74,7 @@ function Pesquisa () {
             }}
             />
             {livrosPesquisados.map( livro => (
-                <Resultado onClick={() => insertFavoritos(livro._id)}>
+                <Resultado key={livro._id} onClick={() => insertFavoritos(livro._id)}>
                     <h2>{livro.titulo}</h2>
                     <p>{livro.autor.nome}</p>
                 </Resultado>

@@ -19,7 +19,7 @@ const Information = ({titulo, lis}) =>{
     <InformationContainer>
         <Title>{titulo}</Title>
         <InformationList>{lis.map(li => (
-            <li>{li}</li>
+            <li key={`chave${li}`}>{li}</li>
         ))}
         </InformationList>
     </InformationContainer>

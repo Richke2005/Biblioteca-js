@@ -17,8 +17,8 @@ const icons = [myHome, shopping]
 function inconsHeader () {
     return (
         <Icones>
-            {icons.map(icons => (
-              <Icone><img src={icons} alt='icone do header'></img></Icone> 
+            {icons.map((icons, array) => (
+              <Icone key={`icone${array}`}><img src={icons} alt='icone do header'></img></Icone> 
             ))}
         </Icones>
     )
