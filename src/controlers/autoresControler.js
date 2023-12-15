@@ -5,9 +5,11 @@ const { autores } = require("../models/index.js");
 class AutoresControler{
   static listarAutores = async (req, res, next) => {
     try{
-      const autoresDaAPI = await autores.find();
-      res.send(autoresDaAPI);
-      res.status(200);
+      const autoresDaAPI = autores.find();
+      
+      req.resultado = autoresDaAPI;
+      
+      next()
     }catch(err){
       next(err);
     }

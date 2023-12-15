@@ -1,3 +1,4 @@
+const autopopulate = require("mongoose-autopopulate");
 const mongoose = require("mongoose");
 
 const LivrosSchema = new mongoose.Schema({
@@ -9,7 +10,8 @@ const LivrosSchema = new mongoose.Schema({
   autor:{
     type: mongoose.Schema.Types.ObjectId,
     ref: "autores",
-    required: [true, "O autor é obrigatório"]
+    required: [true, "O autor é obrigatório"],
+    autopopulate: {select: "nome"}// (true)autopopulate para popular os autores na requisição
   },
   editora:{type: String,
     required: [true, "A editora é obrigatória"],
@@ -31,6 +33,8 @@ const LivrosSchema = new mongoose.Schema({
     }
   }
 });
+
+LivrosSchema.plugin(autopopulate);
 
 const livros = mongoose.model("livros", LivrosSchema);
 

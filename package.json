@@ -88,6 +88,7 @@
     "mongodb": "^5.7.0",
     "mongodb-connection-string-url": "^2.6.0",
     "mongoose": "^7.4.3",
+    "mongoose-autopopulate": "^1.1.0",
     "morgan": "^1.9.1",
     "mpath": "^0.9.0",
     "mquery": "^5.0.0",

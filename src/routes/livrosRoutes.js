@@ -1,12 +1,16 @@
 const { Router } = require("express");
+const paginar = require("../middlewares/paginar");
 const LivrosControler = require("../controlers/livrosControler");
+
 
 const router = Router();
 //mais específica para menos específica
-router.get("/livros", LivrosControler.listarLivros);
-router.get("/livros/busca", LivrosControler.listarLivroPorFiltro);
-router.get("/livros/:id", LivrosControler.listarLivrosPorId);
-router.post("/livros", LivrosControler.cadastrarLivro);
-router.put("/livros/:id", LivrosControler.atualizarLivro);
-router.delete("/livros/:id", LivrosControler.excluirLivro);
+router
+    .get("/livros", LivrosControler.listarLivros, paginar)
+    .get("/livros/busca", LivrosControler.listarLivroPorFiltro, paginar)
+    .get("/livros/:id", LivrosControler.listarLivrosPorId)
+    .post("/livros", LivrosControler.cadastrarLivro)
+    .put("/livros/:id", LivrosControler.atualizarLivro)
+    .delete("/livros/:id", LivrosControler.excluirLivro);
+    
 module.exports = router;

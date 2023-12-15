@@ -1,28 +1,15 @@
 const PagNaoEncontarada = require("../erros/erroPagNaoEncontrada");
-const RequisicaoIncorreta = require("../erros/requisiçãoIncorreta");
 const { livros } = require("../models/index.js");
 const processaBusca = require("../services/processaBusca");
 
 class LivrosControler{
   static listarLivros = async(req, res, next) => {
     try{
-      let { limite = 5, pagina = 1 } = req.query;
+     const buscaLivros = livros.find();
 
-      limite = parseInt(limite);
-      pagina = parseInt(pagina);
+     req.resultado = buscaLivros;
 
-      if( limite > 0 && pagina > 0){
-        const livrosDaAPI = await livros.find()
-          .skip((pagina-1) * limite)
-          .limit(limite)  
-          .populate("autor")
-          .exec();
-                
-        res.status(200).send(livrosDaAPI);
-      }else {
-        next(new RequisicaoIncorreta());
-      }
-      
+     next();
     }catch(err){
       next(err);
     }
@@ -58,9 +45,10 @@ class LivrosControler{
   static listarLivrosPorId = async (req, res, next) => {
     try{
       const id = req.params.id;
-      const livroPesquisado = await livros.findById(id)
-        .populate("autor", "nome")
-        .exec();
+      const livroPesquisado = await livros
+      .findById(id, {}, {autopopulate: false})
+      .populate("autor")
+
       if(livroPesquisado !== null){
         res.status(200).send(livroPesquisado);
       }else{
@@ -77,7 +65,7 @@ class LivrosControler{
     try{
       const id = req.params.id;
             
-      const livroDaAPI = await livros.findByIdAndDelete(id);
+      const livroDaAPI = livros.findByIdAndDelete(id);
       if(livroDaAPI !== null){
         res.status(200).send({message: "document removed sucessfully"});
       }else{
@@ -96,11 +84,11 @@ class LivrosControler{
 
       
       if(busca !== null){
-        const buscaDaAPI = await livros
-          .find(busca)
-          .populate("autor");
+        const buscaDaAPI = livros.find(busca);
 
-        res.status(200).send(buscaDaAPI);
+          req.resultado = buscaDaAPI;
+
+        next();
       } else {
         res.status(200).send([]);
       }
