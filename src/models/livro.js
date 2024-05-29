@@ -7,19 +7,32 @@ const LivrosSchema = new mongoose.Schema({
     type: String,
     required: [true, "O titulo do livro é obrigatório"]
   },
+  tema: {
+    type: String,
+    required: [true, "Tema do livro é obrigatório"]
+  },
   autor:{
     type: mongoose.Schema.Types.ObjectId,
     ref: "autores",
     required: [true, "O autor é obrigatório"],
     autopopulate: {select: "nome"}// (true)autopopulate para popular os autores na requisição
   },
-  editora:{type: String,
+  editora:{
+    type: String,
     required: [true, "A editora é obrigatória"],
     //Fazendo um enum (Lista de valores) permitidos 
     enum: {
       values: ["Casa do código", "Alura", "Casa publicadora brasileira"],
       message:  "A editora '{VALUE}' não é um valor válido"
     }
+  },
+  img: {
+    type: String,
+    required: [true, "A imagem do livro é obrigatória"]
+  },
+  url: {
+    type: String,
+    required: [true, "A url do livro é obrigatória"]
   },
   numPaginas:{
     type: Number,

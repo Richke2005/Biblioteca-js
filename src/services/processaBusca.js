@@ -2,7 +2,7 @@ const { autores } = require("../models/index");
 
 // função de busca importíssima
 async function processaBusca(parametros){
-  const { editora, titulo, minPag, maxPag, nomeAutor } = parametros;
+  const { editora, titulo, minPag, maxPag, nomeAutor, tema } = parametros;
 
   let busca = {};
 
@@ -10,6 +10,7 @@ async function processaBusca(parametros){
 
   if(editora) busca.editora = {$regex: editora, $options: "i"};
   if(titulo) busca.titulo = { $regex: titulo, $options: "i" };
+  if(tema) busca.tema = { $regex: tema, $options: "i" };
 
   if(minPag || maxPag) busca.numPaginas = {};
 

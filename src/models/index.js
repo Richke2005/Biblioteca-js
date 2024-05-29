@@ -1,6 +1,6 @@
 require("./validadorGlobal");
 const autores = require("./autor");
-const livros = require("./Livro");
+const livros = require("./livro");
 
 module.exports = {
   autores,
