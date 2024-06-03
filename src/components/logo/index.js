@@ -1,4 +1,4 @@
-import img from '../../images/logo.svg';
+import img from '../../images/logo-copy.png';
 import Styled from 'styled-components'
 
 const LogoContainer = Styled.div`
@@ -12,7 +12,9 @@ const LogoContainer = Styled.div`
 
 const LogoImg = Styled.img`
 width: 100%;
+margin-left: 10px;
 object-fit: cover;
+border-radius: 40px;
 `
 
 function Logo () {
@@ -22,7 +24,7 @@ function Logo () {
            <LogoImg 
             src={img} alt='logo da página'
             />
-           <p>Angels´s <strong>BooksStore</strong></p>
+           <p style={{marginLeft: 10}}>Angels´s <strong>BooksStore</strong></p>
         </LogoContainer>
     )
 }

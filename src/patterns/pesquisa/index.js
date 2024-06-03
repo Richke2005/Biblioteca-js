@@ -1,9 +1,10 @@
-import Input from '../input'
+import Input from '../../components/input'
 import Styled from 'styled-components'
 import { useState } from 'react'
 import { useEffect } from 'react'
 import { getLivros } from '../../services/livros'
 import { postFavoritos } from '../../services/favoritos'
+
 const PesquisaContainer = Styled.section`
         background-image: white;
         color: black;
@@ -48,10 +49,10 @@ function Pesquisa () {
     
 
     useEffect( () => {
-       fetchRoupas()
+       fetchLivros()
     })
 
-    async function fetchRoupas() {
+    async function fetchLivros() {
         const livrosDaAPI = await getLivros()
         setLivros(livrosDaAPI)
     }
@@ -69,7 +70,7 @@ function Pesquisa () {
             placeholder="Escreva sua próxima leitura"
             onBlur={evt => {
                 const textoDigitado = evt.target.value
-                const resultadoPesquisa = livros.filter( livro => livro.titulo.includes(textoDigitado))
+                const resultadoPesquisa = livros.filter( livro => livro.tema.includes(textoDigitado) || livro.titulo.includes(textoDigitado))
                 setLivrosPesquisados(resultadoPesquisa)
             }}
             />
@@ -84,4 +85,4 @@ function Pesquisa () {
     )
 }
 
-export default Pesquisa
+export default Pesquisa;

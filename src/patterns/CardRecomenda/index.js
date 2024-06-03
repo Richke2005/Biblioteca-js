@@ -1,5 +1,5 @@
 import Styled from 'styled-components'
-import { Titulo } from '../Titulo/index'
+import { Titulo } from '../../components/Titulo/index.js'
 
 const Card = Styled.div`
     align-items: center;
@@ -11,7 +11,8 @@ const Card = Styled.div`
     max-width: 600px;
     padding: 25px 20px;
     justify-content: space-around;
-    width: 100%;  
+    width: 100%;
+    margin: 20px;
 `
 
 const Botao = Styled.button`

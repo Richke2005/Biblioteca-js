@@ -1,5 +1,5 @@
 import { livros } from './DadosUltimoLancamento'
-import { Titulo } from '../Titulo/index'
+import { Titulo } from '../../components/Titulo/index'
 import Styled from 'styled-components'
 
 const UltimosLancamentosContainer = Styled.section`
@@ -7,6 +7,7 @@ background-color: #EBECEE;
 padding-bottom: 20px;
 display: flex;
 flex-direction: column;
+width: 100%;
 `
 
 const NovosLivrosContainer = Styled.div`
