@@ -24,7 +24,7 @@ function Logo () {
            <LogoImg 
             src={img} alt='logo da página'
             />
-           <p style={{marginLeft: 10}}>Angels´s <strong>BooksStore</strong></p>
+           <p style={{marginLeft: 10}}>Tech Guide <strong>BooksStore</strong></p>
         </LogoContainer>
     )
 }

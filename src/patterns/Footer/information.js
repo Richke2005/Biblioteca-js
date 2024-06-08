@@ -14,16 +14,14 @@ const InformationList = Styled.ul`
 padding: 0;
 text-align: left;
 `
-const Information = ({titulo, lis}) =>{
-    return(
-    <InformationContainer>
+const Information = ({titulo, list}) =>{
+    return<InformationContainer>
         <Title>{titulo}</Title>
-        <InformationList>{lis.map(li => (
-            <li key={`chave${li}`}>{li}</li>
+        <InformationList>{list.map(li => (
+            <li key={`chave${li}`}><a href='https://google.com'>{li}</a></li>
         ))}
         </InformationList>
-    </InformationContainer>
-    )
+    </InformationContainer>;
 }
 
-export default Information
+export default Information;

@@ -21,7 +21,7 @@ cursor: pointer;
 const buttonVariants = {
     mouseOver: {
         scale: 1.2,
-        backgroundColor: "#0000FF",
+        backgroundColor: "#000",
         transition: {
             type: "spring"
         }

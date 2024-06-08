@@ -5,10 +5,15 @@ const NewsContainer = Styled.div`
 width: 100vw;
 padding-top: 12vh;
 `
+
+const Slide = Styled.div`
+
+`
 function Novidades(){
     return (
         <NewsContainer>
             <Titulo>News</Titulo>
+            <Slide/>
         </NewsContainer>
     )
 }

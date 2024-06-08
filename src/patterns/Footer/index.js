@@ -21,16 +21,15 @@ function Footer() {
         <FooterContainer>
           <Information
           titulo="Sobre Nós"
-          lis={Lis}
+          list={Lis}
           />
            <Information
           titulo="Social medias"
-          lis={AnotherList}
+          list={AnotherList}
           />
             <SocialMedia>
-                <img src={image} alt="Social media"></img>
+                <img style={{width: 40}} src={image} alt="Social media"></img>
             </SocialMedia>
-           
         </FooterContainer>
     )
 
